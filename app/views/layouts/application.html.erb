@@ -8,6 +8,12 @@
 </head>
 <body>
 
+<% if user_signed_in? %>
+<p> You're logged in as
+  <%= current_user.email %>.
+  <%= link_to "Sign out", destroy_user_session_path, :method => :delete, :confirm => "Are you sure you want to sign out?" %> </p>
+<% end %>
+
 <%= yield %>
 
 </body>

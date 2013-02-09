@@ -1,0 +1,20 @@
+<%= form_for (@post) do |p| %>
+  Title
+  <br/>
+  <%= p.text_field :title %>
+  <br/>
+  Content
+  <br/>
+  <%= p.text_area :content, :size => "60x12" %>
+  <br/>
+  <%= p.submit "Post" %>
+
+  <% if @post.errors.any? %>
+    <div class="alert alert-block">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h3><%= pluralize(@post.errors.count, "error") %></h3>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+  <% end %>
+<% end %>

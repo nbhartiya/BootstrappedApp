@@ -15,6 +15,8 @@
   <% else %>
     <button class="btn btn-large btn-primary"> <%= link_to "Log In", new_user_session_path %> </button>
     <button class="btn btn-large btn-primary"> <%= link_to "Sign Up", new_user_registration_path %></button>
+    <!-- <%= button_to('Log In', new_user_session_path, :class => 'btn btn-large btn-primary') %>
+    <%= button_to('Sign Up', new_user_registration_path, :class => 'btn btn-large btn-primary') %>  -->
   <% end %>
 </div>
 
@@ -22,7 +24,13 @@
 
 </body>
 
-<!-- <div class="notice"><%= notice %></div>
-<div class="alert"><%= alert %></div> -->
+<% flash.each do |name, msg| %>
+  <% if msg.is_a?(String) %>
+    <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+      <a class="close" data-dismiss="alert">&#215;</a>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    </div>
+  <% end %>
+<% end %>
 
 </html>

@@ -6,4 +6,8 @@ class HomeController < ApplicationController
   def splash
     
   end
+  
+  def new
+    
+  end
 end

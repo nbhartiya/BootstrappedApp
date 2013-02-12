@@ -1,9 +1,9 @@
 Bootstrap::Application.routes.draw do
-  resources :replies
 
-
-  resources :posts
-
+  # do this to have replies nested into posts, super useful!
+  resources :posts do
+    resources :replies
+  end
 
   devise_for :users
 

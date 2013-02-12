@@ -1,0 +1,10 @@
+<!--<%#= form_for (post_reply_path) do |r| %> WRONG WAY OF DOING IT-->
+<%= form_for [@post, reply] do |f| %>
+  <%= @post.title %>
+  <br/>
+  Content
+  <br/>
+  <%= f.text_area :content, :size => "60x12" %>
+  <br/>
+  <%= f.submit "Reply" %>
+<% end %>

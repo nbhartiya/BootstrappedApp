@@ -3,4 +3,5 @@ class Post < ActiveRecord::Base
   validates_presence_of :title, :content, :user_id => true
   
   belongs_to :user
+  has_many :replies
 end
